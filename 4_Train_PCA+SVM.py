@@ -52,8 +52,10 @@ if __name__ == "__main__":
         labels.append(data[-1])   
         print ("%d Dealing with %s" %(num,feat_path))
 #------------------------PCA--------------------------------------------------   
-    fds = np.array(fds,dtype = int)   
-    fds.shape = 3914,-1 # 2327 is the number of trainset
+    fds = np.array(fds,dtype = int)
+    DIR = 'features/train'
+    counts = (len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))]))
+    fds.shape = counts,-1 # 2327 is the number of trainset
     fds= pca(fds,n)  
 #------------------------PCA--------------------------------------------------   
     t0 = time.time()  
