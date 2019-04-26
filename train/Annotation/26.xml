@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>positive</folder>
+	<filename>26.jpg</filename>
+	<path>D:\Gun_Detection\4th\SVM-classification-localization\train\positive\26.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1080</width>
+		<height>607</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>gun</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>192</xmin>
+			<ymin>112</ymin>
+			<xmax>880</xmax>
+			<ymax>514</ymax>
+		</bndbox>
+	</object>
+</annotation>
