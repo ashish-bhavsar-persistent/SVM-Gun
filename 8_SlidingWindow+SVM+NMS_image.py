@@ -31,7 +31,8 @@ def getFeat(data):
 
 def sliding_window(image, stepSize, windowSize):
 	# slide a window across the image
-	for y in xrange(0, image.shape[0], stepSize):
+    xrange = range
+    for y in xrange(0, image.shape[0], stepSize):
 		for x in xrange(0, image.shape[1], stepSize):
 			# yield the current window    
 			yield (x, y, image[y:y + windowSize[1], x:x + windowSize[0]])
@@ -56,13 +57,13 @@ if __name__ == "__main__":
                 continue
             cv2.imshow("asd", window)
             cv2.waitKey(0)
-            print window.shape
+            print (window.shape)
             if window.shape[0] != 200 or window.shape[1] != 200:
                 window = cv2.resize(window,(200,200),interpolation=cv2.INTER_CUBIC)
             win_fd = getFeat(window)
             win_fd.shape = 1,-1
             result = int(clf.predict(win_fd))
-            print 'smamll image result is %d' %result
+            print ('smamll image result is %d' %result)
             if result == 1:
                 rects.append([x, y, x + winW, y + winH])
                 cv2.rectangle(orig, (x, y), (x + winW, y + winH), (0, 0, 255), 2)
@@ -71,7 +72,7 @@ if __name__ == "__main__":
     for (xA, yA, xB, yB) in pick:
         cv2.rectangle(image, (xA, yA), (xB, yB), (0, 255, 0), 2)
     t1 = time.time()
-    print 'The cast of time is :%f seconds' % (t1-t0)
+    print ('The cast of time is :%f seconds' % (t1-t0))
     cv2.imshow("Before NMS", orig)
     cv2.imshow("After NMS", image)
     cv2.waitKey(0)

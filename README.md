@@ -31,3 +31,24 @@ I think I should clarify the steps for the program.
 中文地址：http://blog.csdn.net/renhanchi/article/category/7007663
 
 强烈建议将6篇文章都仔细看一遍，再来跑代码，或者边看边跑。内容不是很多，但是会对你理解算法和代码有很大帮助。
+
+
+ For 32 Bit 
+"c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars32.bat"
+(optional) To build 32-bit windows binaries, you must
+	(1) Setup "C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\vcvars32.bat" instead of vcvars64.bat
+	(2) Change CFLAGS in Makefile.win: /D _WIN64 to /D _WIN32
+	
+For 64 Bit 
+"c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary\Build\vcvars64.bat"
+
+You may have to modify the above command according which version of
+VC++ or where it is installed.
+
+2. Type
+
+nmake -f Makefile.win clean all
+
+3. (optional) To build shared library libsvm.dll, type
+
+nmake -f Makefile.win lib
