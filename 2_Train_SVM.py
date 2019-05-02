@@ -11,8 +11,11 @@ import glob
 import os  
 import time  
   
-if __name__ == "__main__":  
-    model_path = './models/svm.model'  
+if __name__ == "__main__":
+    # 1. Use Initially
+    model_path = './models/svm.model'
+    # 2. Use NextTime
+    # model_path = './models/svm_pso.model'
     train_feat_path = './features/train'  
     fds = []  
     labels = []  
@@ -24,8 +27,11 @@ if __name__ == "__main__":
         labels.append(data[-1])  
         print ("%d Dealing with %s" %(num,feat_path))
     t0 = time.time()  
-#------------------------SVM--------------------------------------------------  
-    clf = ssv.SVC(kernel='rbf')  
+#------------------------SVM--------------------------------------------------
+    # 1. Use Initially
+    clf = ssv.SVC(kernel='rbf')
+    #2. Use NextTime
+    # clf = ssv.SVC(C=, kernel=='rbf', gamma=)
     print ("Training a SVM Classifier.")
     clf.fit(fds, labels)  
     joblib.dump(clf, model_path)
